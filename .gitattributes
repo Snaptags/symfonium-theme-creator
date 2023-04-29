@@ -1,0 +1,16 @@
+## Handle line endings automatically for files detected as
+## text and leave all files detected as binary untouched.
+## This will handle all files NOT defined below.
+*                   text=auto
+
+# Windows-specific files:
+*.bat               text eol=crlf
+*.cmd               text eol=crlf
+*.ps1               text eol=crlf
+
+# Never auto-convert Linux shell scripts:
+*.bash              text eol=lf
+*.sh                text eol=lf
+
+# don't ever show lock file diffs:
+package-lock.json   binary
