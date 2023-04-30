@@ -1,6 +1,26 @@
 import React from "react";
 import { ColorResult, SketchPicker } from "react-color";
 import styled from "@emotion/styled";
+import { PresetColor } from "react-color/lib/components/sketch/Sketch";
+
+const presetColors: Array<PresetColor> = [
+  "#002b36",
+  "#073642",
+  "#586e75",
+  "#657b83",
+  "#839496",
+  "#93a1a1",
+  "#eee8d5",
+  "#fdf6e3",
+  "#b58900",
+  "#cb4b16",
+  "#dc322f",
+  "#d33682",
+  "#6c71c4",
+  "#268bd2",
+  "#2aa198",
+  "#859900",
+];
 
 const Input = styled.div`
   --border: rgba(0, 0, 0, 0.1);
@@ -63,7 +83,11 @@ export const ColorPicker = ({ color, onChange }: ColorPickerProps) => {
         {!show ? null : (
           <Popover>
             <Cover onClick={onClose} />
-            <SketchPicker color={color} onChange={handleChange} />
+            <SketchPicker
+              color={color}
+              onChange={handleChange}
+              presetColors={presetColors}
+            />
           </Popover>
         )}
       </Swatch>
